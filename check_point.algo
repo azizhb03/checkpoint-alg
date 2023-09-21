@@ -1,0 +1,25 @@
+ALGORITHM check_point (tab1: ARRAY_OF INTEGER,tab2: ARRAY_OF INTEGER)
+VAR
+     result: INTEGER := 0
+    array: ARRAY_OF INTEGER := [] // Initialize an empty array to store unique elements
+BEGIN
+      // Iterate through the elements in set1
+    FOR i FROM 0 TO LENGTH(set1) - 1 DO
+        IF NOT set2 CONTAINS set1[i] THEN
+            result := result + set1[i] // Add the unique element to the result
+            array := array APPEND set1[i]
+        END_IF
+    END_FOR
+
+    // Iterate through the elements in set2
+    FOR i FROM 0 TO LENGTH(set2) - 1 DO
+        IF NOT set1 CONTAINS set2[i] THEN
+            result := result + set2[i] // Add the unique element to the result
+            array := array APPEND set2[i]
+        END_IF
+    END_FOR
+
+    // The 'result' variable now contains the sum of all distinct elements
+    // The 'array' variable contains all distinct elements found
+    RETURN result, array
+END
